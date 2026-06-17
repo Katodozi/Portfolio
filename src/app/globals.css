@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "lenis/dist/lenis.css";
+
+:root {
+  --color-bg: #0d1b2a;
+  --color-surface: #112240;
+  --color-border: #1e3a5f;
+  --color-primary: #4a9ebf;
+  --color-accent: #64ffda;
+  --color-text: #e8edf2;
+  --color-muted: #8b9bb4;
+
+  --font-heading: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body), system-ui, sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+@media (max-width: 768px), (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+}
+
+code,
+pre,
+.mono {
+  font-family: var(--font-mono), monospace;
+}
+
+::selection {
+  background-color: rgba(100, 255, 218, 0.25);
+  color: var(--color-text);
+}
+
+/* Noise texture overlay */
+.noise-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* Grid background */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(30, 58, 95, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 58, 95, 0.3) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Glow utilities */
+.glow-accent {
+  box-shadow: 0 0 20px rgba(100, 255, 218, 0.15),
+    0 0 40px rgba(100, 255, 218, 0.05);
+}
+
+.glow-primary {
+  box-shadow: 0 0 20px rgba(74, 158, 191, 0.2),
+    0 0 40px rgba(74, 158, 191, 0.08);
+}
+
+.glow-dot {
+  box-shadow: 0 0 8px var(--color-accent), 0 0 16px rgba(100, 255, 218, 0.4);
+}
+
+.glow-line {
+  box-shadow: 0 0 12px rgba(100, 255, 218, 0.3);
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(17, 34, 64, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(30, 58, 95, 0.5);
+}
+
+/* Section spacing */
+.section-padding {
+  @apply px-4 py-20 md:px-8 md:py-28 lg:px-16;
+}
+
+.section-container {
+  @apply mx-auto max-w-6xl;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Interactive elements for custom cursor */
+a,
+button,
+[role="button"],
+input,
+textarea,
+select,
+.cursor-pointer,
+[data-cursor="pointer"] {
+  cursor: none;
+}
+
+@media (max-width: 768px), (pointer: coarse) {
+  a,
+  button,
+  [role="button"],
+  input,
+  textarea,
+  select,
+  .cursor-pointer,
+  [data-cursor="pointer"] {
+    cursor: pointer;
+  }
+}
+
+/* Section heading style */
+.section-heading {
+  @apply mb-4 font-heading text-3xl font-bold tracking-tight md:text-4xl;
+  color: var(--color-text);
+}
+
+.section-heading span {
+  color: var(--color-accent);
+}
+
+.section-subheading {
+  @apply mb-12 max-w-2xl text-base md:text-lg;
+  color: var(--color-muted);
+}
+
+/* Preloader */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg);
+}
