@@ -4,6 +4,7 @@ import { useState, useCallback } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Preloader from "@/components/layout/Preloader";
+import ScrollProgress from "@/components/layout/ScrollProgress";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Skills from "@/components/sections/Skills";
@@ -27,6 +28,7 @@ export default function Home() {
         className="relative min-h-screen bg-bg"
         style={{ opacity: loading ? 0 : 1, transition: "opacity 0.6s ease" }}
       >
+        <ScrollProgress />
         <Navbar />
         <Hero />
         <About />

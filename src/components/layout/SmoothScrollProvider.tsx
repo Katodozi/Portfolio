@@ -40,10 +40,11 @@ export default function SmoothScrollProvider({
       ref={lenisRef}
       root
       options={{
-        lerp: 0.1,
-        duration: 1.2,
+        lerp: 0.08,
+        duration: 1.4,
         smoothWheel: true,
-        touchMultiplier: 1.5,
+        touchMultiplier: 2,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       }}
     >
       {children}

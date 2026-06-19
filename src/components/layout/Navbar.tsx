@@ -64,10 +64,13 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 md:px-8 lg:px-16">
         <button
           onClick={() => handleNavClick("#hero")}
-          className="font-heading text-lg font-bold tracking-tight text-text"
+          className="group font-heading text-lg font-bold tracking-tight text-text"
           data-cursor="pointer"
         >
-          AB<span className="text-accent">.</span>
+          <span className="text-gradient-subtle transition-all group-hover:text-accent">
+            AB
+          </span>
+          <span className="text-accent">.</span>
         </button>
 
         <ul className="hidden items-center gap-1 md:flex">
@@ -97,7 +100,7 @@ export default function Navbar() {
 
         <button
           onClick={() => handleNavClick("#contact")}
-          className="hidden rounded-md border border-primary/40 px-4 py-2 text-sm font-medium text-primary transition-all duration-200 hover:border-accent hover:text-accent hover:glow-accent md:block"
+          className="hidden rounded-lg border border-accent/30 bg-accent/5 px-4 py-2 text-sm font-medium text-accent transition-all duration-200 hover:bg-accent/15 hover:glow-accent md:block"
           data-cursor="pointer"
         >
           Hire Me

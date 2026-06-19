@@ -23,6 +23,9 @@ export const personalInfo: PersonalInfo = {
     "NLP Researcher",
   ],
   cvPath: "/cv/anuj-bhattarai-cv.pdf",
+  profileImage: "/images/profile.webp",
+  profileImageFallback: "/images/profile-placeholder.svg",
+  initials: "AB",
   socials: [
     {
       name: "GitHub",

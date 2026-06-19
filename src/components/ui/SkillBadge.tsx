@@ -13,8 +13,8 @@ export default function SkillBadge({ skill, index = 0 }: SkillBadgeProps) {
     <motion.span
       variants={badgeVariants}
       custom={index}
-      className="inline-flex items-center rounded-md border border-border bg-surface px-3 py-1.5 font-mono text-xs text-text transition-colors duration-200 hover:border-accent/50 hover:text-accent md:text-sm"
-      whileHover={{ scale: 1.05 }}
+      className="inline-flex items-center rounded-lg border border-border/60 bg-bg/40 px-3 py-1.5 font-mono text-xs text-text backdrop-blur-sm transition-all duration-300 hover:border-accent/50 hover:bg-accent/5 hover:text-accent hover:glow-accent md:text-sm"
+      whileHover={{ scale: 1.05, y: -2 }}
     >
       {skill}
     </motion.span>

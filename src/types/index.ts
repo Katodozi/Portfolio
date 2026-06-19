@@ -71,5 +71,8 @@ export interface PersonalInfo {
   about: string;
   typewriterRoles: string[];
   cvPath: string;
+  profileImage: string;
+  profileImageFallback: string;
+  initials: string;
   socials: SocialLink[];
 }
