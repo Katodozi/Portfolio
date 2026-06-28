@@ -45,7 +45,7 @@ export const personalInfo: PersonalInfo = {
     },
     {
       name: "Kaggle",
-      url: "https://www.kaggle.com/anujbhattari",
+      url: "https://www.kaggle.com/anujbhattrai",
       icon: "kaggle",
     },
   ],
@@ -170,16 +170,15 @@ export const projects: Project[] = [
     category: "ai-ml",
     github: "https://github.com/Katodozi",
   },
-  {
-    id: "job-scraper",
-    title: "Job Scraper + LLM Query Platform",
-    description:
-      "Automated job aggregator with natural-language query interface via local LLM. RAG-style architecture, no external API costs.",
-    tech: ["Python", "BeautifulSoup", "Selenium", "Ollama", "RAG"],
-    category: "web-scraping",
-    github:
-      "https://github.com/Katodozi/job-scraper-requests-and-bs4--and-query-platform-using-local-llm-",
-  },
+
+    {
+      id: "job-scraper",
+      title: "E-Learning Platform",
+      category: "full-stack",
+      description: "A one-stop learning platform covering frontend, backend, DevOps and more. Lets users browse courses, join discussions, and track their progress.",
+      tech: ["React", "FastAPI", "Tailwindcss", "GEMINI", "Postgres", "Docker", "LLM"],
+      github: "https://github.com/Katodozi/E-Learning-Platform",
+    },
   {
     id: "journal-app",
     title: "Journal App — Spring Boot + React",
