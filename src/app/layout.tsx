@@ -23,39 +23,43 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://anujbhattarai.dev"),
-  title: "Anuj Bhattarai | Full Stack Engineer & AI/ML Developer",
-  description:
-    "Portfolio of Anuj Bhattarai — Full Stack Engineer & AI/ML Developer from Kathmandu, Nepal. Building intelligent web solutions with NLP, local LLMs, and modern full-stack technologies.",
-  keywords: [
-    "Anuj Bhattarai",
-    "Full Stack Developer",
-    "AI/ML Engineer",
-    "NLP",
-    "Nepal",
-    "Freelance Developer",
-    "Next.js",
-    "Python",
-    "Django",
-  ],
-  authors: [{ name: "Anuj Bhattarai" }],
-  openGraph: {
-    title: "Anuj Bhattarai | Full Stack Engineer & AI/ML Developer",
-    description:
-      "Building Intelligent Web Solutions — NLP tools, local LLM platforms, and full-stack applications.",
-    url: "https://anujbhattarai.dev",
-    siteName: "Anuj Bhattarai Portfolio",
-    locale: "en_US",
-    type: "website",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Anuj Bhattarai — Full Stack Engineer & AI/ML Developer",
-      },
-    ],
-  },
+      metadataBase: new URL("https://anujbhattarai.dev"),
+      title: "Anuj Bhattarai | Full Stack Engineer & AI/ML Developer",
+      description:
+        "Portfolio of Anuj Bhattarai — Full Stack Engineer & AI/ML Developer from Kathmandu, Nepal. Building intelligent web solutions with NLP, local LLMs, and modern full-stack technologies.",
+      keywords: [
+        "Anuj Bhattarai",
+        "Full Stack Developer",
+        "AI/ML Engineer",
+        "NLP",
+        "Nepal",
+        "Freelance Developer",
+        "Next.js",
+        "Python",
+        "Django",
+      ],
+      authors: [{ name: "Anuj Bhattarai" }],
+      openGraph: {
+        title: "Anuj Bhattarai | Full Stack Engineer & AI/ML Developer",
+        description:
+          "Building Intelligent Web Solutions — NLP tools, local LLM platforms, and full-stack applications.",
+        url: "https://anujbhattarai.dev",
+        siteName: "Anuj Bhattarai Portfolio",
+        locale: "en_US",
+        type: "website",
+        images: [
+          {
+            url: "/og-image.png",
+            width: 1200,
+            height: 630,
+            alt: "Anuj Bhattarai — Full Stack Engineer & AI/ML Developer",
+          },
+        ],
+      },
+      // Integrated Google Search Console verification code
+      verification: {
+        google: "ILZNB_pC5hw5WK0lRrJj-teUn27fPheYRzdQjNQqdLQ",
+      },
   twitter: {
     card: "summary_large_image",
     title: "Anuj Bhattarai | Full Stack Engineer & AI/ML Developer",
