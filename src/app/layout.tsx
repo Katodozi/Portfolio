@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/layout/SmoothScrollProvider";
@@ -88,6 +89,7 @@ export default function RootLayout({
           <CustomCursor />
           {children}
         </SmoothScrollProvider>
+        <Analytics />
       </body>
     </html>
   );
