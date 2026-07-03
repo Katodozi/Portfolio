@@ -59,7 +59,7 @@ export const metadata: Metadata = {
       },
       // Integrated Google Search Console verification code
       verification: {
-        google: "ILZNB_pC5hw5WK0lRrJj-teUn27fPheYRzdQjNQqdLQ",
+        google: "yYjfItYLniSMy-zpz1VL_2waRcujw8BQPjgVz93NVE4",
       },
   twitter: {
     card: "summary_large_image",
