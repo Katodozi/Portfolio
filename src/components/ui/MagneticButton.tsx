@@ -34,7 +34,7 @@ export default function MagneticButton({
     const rect = ref.current.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    setPosition({ x: x * 0.25, y: y * 0.25 });
+    setPosition({ x: x * 0.15, y: y * 0.15 });
   };
 
   const handleMouseLeave = () => {
@@ -42,18 +42,19 @@ export default function MagneticButton({
   };
 
   const baseStyles = clsx(
-    "relative inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-300",
+    "relative inline-flex items-center justify-center gap-2 rounded-sharp px-5 py-2.5 font-mono text-sm font-semibold transition-all duration-200",
     variant === "primary"
-      ? "border border-accent/40 bg-gradient-to-r from-accent/15 to-glow/10 text-accent hover:from-accent/25 hover:to-glow/15 hover:glow-accent"
-      : "border border-primary/40 bg-transparent text-primary hover:border-highlight hover:text-highlight hover:glow-primary",
+      ? "btn-glow-primary bg-primary text-bg hover:bg-primary-dim"
+      : "border border-border-2 bg-transparent text-text-2 hover:border-primary hover:text-primary",
     className
   );
 
   const style = {
     transform: `translate(${position.x}px, ${position.y}px)`,
-    transition: position.x === 0 && position.y === 0
-      ? "transform 0.4s ease, background-color 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s"
-      : "transform 0.1s ease",
+    transition:
+      position.x === 0 && position.y === 0
+        ? "transform 0.3s ease, background-color 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s"
+        : "transform 0.1s ease",
   };
 
   if (href) {

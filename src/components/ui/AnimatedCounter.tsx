@@ -40,12 +40,15 @@ export default function AnimatedCounter({
   }, [inView, value]);
 
   return (
-    <div ref={ref} className="text-center">
-      <div className="font-heading text-4xl font-bold text-accent md:text-5xl">
+    <div
+      ref={ref}
+      className="glow-card rounded-md border border-border-2 bg-surface px-3 py-5 text-center transition-all duration-200 hover:border-primary md:px-4 md:py-6"
+    >
+      <div className="font-heading text-3xl font-bold text-primary md:text-4xl">
         {count}
         {suffix}
       </div>
-      <div className="mt-2 text-sm text-muted">{label}</div>
+      <div className="mt-2 font-mono text-xs text-muted">{label}</div>
     </div>
   );
 }

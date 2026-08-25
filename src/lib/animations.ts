@@ -3,11 +3,11 @@ import type { Variants } from "framer-motion";
 export const locomotionEase = [0.22, 1, 0.36, 1] as const;
 
 export const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 60 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: locomotionEase },
+    transition: { duration: 0.6, ease: [0.22, 0.61, 0.36, 1] },
   },
 };
 
@@ -64,14 +64,14 @@ export const badgeVariants: Variants = {
 };
 
 export const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
       delay: i * 0.08,
       duration: 0.6,
-      ease: locomotionEase,
+      ease: [0.22, 0.61, 0.36, 1],
     },
   }),
 };
@@ -85,12 +85,12 @@ export const sectionVariants: Variants = {
 };
 
 export const imageReveal: Variants = {
-  hidden: { opacity: 0, scale: 1.1, filter: "blur(8px)" },
+  hidden: { opacity: 0, scale: 1.03, filter: "blur(4px)" },
   visible: {
     opacity: 1,
     scale: 1,
     filter: "blur(0px)",
-    transition: { duration: 1, ease: locomotionEase },
+    transition: { duration: 0.6, ease: [0.22, 0.61, 0.36, 1] },
   },
 };
 

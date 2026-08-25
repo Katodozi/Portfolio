@@ -58,19 +58,16 @@ export default function Navbar() {
       transition={{ duration: 0.6, delay: 0.5 }}
       className={clsx(
         "fixed left-0 right-0 top-0 z-50 transition-all duration-300",
-        scrolled ? "glass py-3" : "bg-transparent py-5"
+        scrolled ? "glass-nav py-3" : "bg-transparent py-5"
       )}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 md:px-8 lg:px-16">
         <button
           onClick={() => handleNavClick("#hero")}
-          className="group font-heading text-lg font-bold tracking-tight text-text"
+          className="font-heading text-lg font-bold tracking-tight text-text"
           data-cursor="pointer"
         >
-          <span className="text-gradient-subtle transition-all group-hover:text-accent">
-            AB
-          </span>
-          <span className="text-accent">.</span>
+          AB<span className="text-primary">.</span>
         </button>
 
         <ul className="hidden items-center gap-1 md:flex">
@@ -79,20 +76,14 @@ export default function Navbar() {
               <button
                 onClick={() => handleNavClick(item.href)}
                 className={clsx(
-                  "relative rounded-md px-3 py-2 text-sm font-medium transition-colors duration-200",
+                  "rounded-sharp px-3 py-2 font-mono text-xs transition-colors duration-200 lg:text-sm",
                   activeSection === item.id
-                    ? "text-accent"
-                    : "text-muted hover:text-text"
+                    ? "text-primary glow-text-nav-active"
+                    : "text-text-2 hover:text-primary"
                 )}
                 data-cursor="pointer"
               >
                 {item.label}
-                {activeSection === item.id && (
-                  <motion.span
-                    layoutId="nav-indicator"
-                    className="absolute bottom-0 left-1/2 h-0.5 w-4 -translate-x-1/2 rounded-full bg-accent glow-line"
-                  />
-                )}
               </button>
             </li>
           ))}
@@ -100,7 +91,7 @@ export default function Navbar() {
 
         <button
           onClick={() => handleNavClick("#contact")}
-          className="hidden rounded-lg border border-accent/30 bg-accent/5 px-4 py-2 text-sm font-medium text-accent transition-all duration-200 hover:bg-accent/15 hover:glow-accent md:block"
+          className="nav-cta-glow hidden rounded-sharp bg-primary px-4 py-2 font-mono text-xs font-semibold text-bg transition-all duration-200 hover:bg-primary-dim md:block"
           data-cursor="pointer"
         >
           Hire Me
@@ -139,7 +130,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="glass overflow-hidden md:hidden"
+            className="glass-nav overflow-hidden md:hidden"
           >
             <ul className="flex flex-col gap-1 px-4 py-4">
               {navItems.map((item) => (
@@ -147,10 +138,10 @@ export default function Navbar() {
                   <button
                     onClick={() => handleNavClick(item.href)}
                     className={clsx(
-                      "w-full rounded-md px-4 py-3 text-left text-sm font-medium transition-colors",
+                      "w-full rounded-sharp px-4 py-3 text-left font-mono text-sm transition-colors",
                       activeSection === item.id
-                        ? "text-accent bg-surface"
-                        : "text-muted"
+                        ? "text-primary bg-surface"
+                        : "text-text-2"
                     )}
                     data-cursor="pointer"
                   >

@@ -57,7 +57,7 @@ export default function TimelineItem({
             start: "top 80%",
             toggleActions: "play none none reverse",
           },
-          delay: index * 0.15,
+          delay: index * 0.12,
         }
       );
 
@@ -68,13 +68,13 @@ export default function TimelineItem({
           {
             scale: 1,
             duration: 0.4,
-            ease: "back.out(2)",
+            ease: "power2.out",
             scrollTrigger: {
               trigger: itemRef.current,
               start: "top 80%",
               toggleActions: "play none none reverse",
             },
-            delay: index * 0.15,
+            delay: index * 0.12,
           }
         );
       }
@@ -85,14 +85,14 @@ export default function TimelineItem({
           { scaleY: 0 },
           {
             scaleY: 1,
-            duration: 0.8,
-            ease: "power2.inOut",
+            duration: 0.6,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: itemRef.current,
               start: "top 80%",
               toggleActions: "play none none reverse",
             },
-            delay: index * 0.15 + 0.2,
+            delay: index * 0.12 + 0.15,
           }
         );
       }
@@ -101,38 +101,38 @@ export default function TimelineItem({
   );
 
   return (
-    <div ref={itemRef} className="relative flex gap-6 pb-10 opacity-0">
+    <div ref={itemRef} className="relative flex gap-6 pb-8 opacity-0">
       <div className="relative flex flex-col items-center">
         <div
           ref={dotRef}
           className={clsx(
-            "relative z-10 h-3 w-3 rounded-full border-2",
-            ongoing
-              ? "border-accent bg-accent/20 glow-dot"
-              : "border-primary bg-surface"
+            "relative z-10 h-3 w-3 rounded-full bg-primary pulse-glow",
+            ongoing && "ring-2 ring-primary/30"
           )}
         />
         {!isLast && (
           <div
             ref={lineRef}
-            className="absolute top-3 h-full w-px origin-top bg-border"
-            style={{ minHeight: "60px" }}
+            className="absolute top-3 h-full w-px origin-top bg-border-2"
+            style={{ minHeight: "50px" }}
           />
         )}
       </div>
 
-      <div className="flex-1 pb-2">
+      <div className="flex-1 pb-1">
         <div className="flex flex-wrap items-center gap-2">
-          <h3 className="font-heading text-base font-semibold text-text md:text-lg">
+          <h3 className="font-heading text-base font-semibold text-primary md:text-lg">
             {title}
           </h3>
           {ongoing && (
-            <span className="rounded-full border border-accent/30 bg-accent/10 px-2 py-0.5 text-xs text-accent">
-              Ongoing
+            <span className="rounded-sharp border border-primary/30 bg-primary/10 px-2 py-0.5 font-mono text-[10px] text-primary">
+              Current
             </span>
           )}
         </div>
-        <p className="mt-1 text-sm text-primary">{subtitle}</p>
+        <p className="mt-1 font-heading text-sm font-medium text-text md:text-base">
+          {subtitle}
+        </p>
         <p className="mt-1 font-mono text-xs text-muted">{period}</p>
       </div>
     </div>

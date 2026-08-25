@@ -31,7 +31,7 @@ export default function Contact() {
   };
 
   return (
-    <SectionWrapper id="contact" withAurora className="bg-surface/20">
+    <SectionWrapper id="contact">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -46,14 +46,14 @@ export default function Contact() {
         />
       </motion.div>
 
-      <div className="grid gap-12 md:grid-cols-2">
+      <div className="grid gap-10 md:grid-cols-2">
         <motion.form
           onSubmit={handleSubmit}
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="card-shine space-y-5 rounded-xl border border-border/60 bg-surface/40 p-6 backdrop-blur-sm md:p-8"
+          transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
+          className="space-y-4 rounded-lg border border-border-2 bg-surface p-5 md:p-7"
         >
           <div>
             <label htmlFor="name" className="mb-2 block font-mono text-xs text-muted">
@@ -67,7 +67,7 @@ export default function Contact() {
               onChange={(e) =>
                 setFormState((prev) => ({ ...prev, name: e.target.value }))
               }
-              className="w-full rounded-lg border border-border bg-bg/80 px-4 py-3 text-sm text-text outline-none transition-all focus:border-accent focus:glow-accent"
+              className="input-focus w-full rounded-sharp border border-border-2 bg-surface px-4 py-2.5 text-sm text-text transition-all duration-200"
               placeholder="Your name"
             />
           </div>
@@ -84,7 +84,7 @@ export default function Contact() {
               onChange={(e) =>
                 setFormState((prev) => ({ ...prev, email: e.target.value }))
               }
-              className="w-full rounded-lg border border-border bg-bg/80 px-4 py-3 text-sm text-text outline-none transition-all focus:border-accent focus:glow-accent"
+              className="input-focus w-full rounded-sharp border border-border-2 bg-surface px-4 py-2.5 text-sm text-text transition-all duration-200"
               placeholder="your@email.com"
             />
           </div>
@@ -104,7 +104,7 @@ export default function Contact() {
                   message: e.target.value,
                 }))
               }
-              className="w-full resize-none rounded-lg border border-border bg-bg/80 px-4 py-3 text-sm text-text outline-none transition-all focus:border-accent focus:glow-accent"
+              className="input-focus w-full resize-none rounded-sharp border border-border-2 bg-surface px-4 py-2.5 text-sm text-text transition-all duration-200"
               placeholder="Tell me about your project..."
             />
           </div>
@@ -119,29 +119,32 @@ export default function Contact() {
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 0.61, 0.36, 1] }}
           className="flex flex-col justify-center space-y-8"
         >
           <div>
+            <p className="mb-2 font-mono text-xs text-muted">
+              {"//"} open to freelance projects
+            </p>
             <p className="mb-2 font-mono text-xs text-muted">{"//"} Email me directly</p>
             <a
               href={`mailto:${personalInfo.email}`}
-              className="inline-flex items-center gap-2 font-mono text-lg text-accent transition-colors hover:text-highlight"
+              className="inline-flex items-center gap-2 font-mono text-base text-primary transition-colors duration-200 hover:text-accent"
               data-cursor="pointer"
             >
-              <FiMail size={20} />
+              <FiMail size={18} />
               {personalInfo.email}
             </a>
           </div>
 
           <div>
             <p className="mb-4 font-mono text-xs text-muted">{"//"} Find me on</p>
-            <SocialIcons size={24} />
+            <SocialIcons size={22} />
           </div>
 
-          <div className="tech-frame rounded-xl border border-border/60 bg-tech-gradient p-6 backdrop-blur-sm">
-            <p className="text-sm leading-relaxed text-muted">
-              Based in <span className="text-accent">{personalInfo.location}</span>,
+          <div className="rounded-lg border border-border-2 bg-surface p-5">
+            <p className="text-sm leading-relaxed text-text-2">
+              Based in <span className="text-primary">{personalInfo.location}</span>,
               available for freelance projects, remote collaborations, and
               full-time opportunities in Full Stack & AI/ML engineering.
             </p>

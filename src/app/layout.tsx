@@ -9,69 +9,92 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
   display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  weight: ["300", "400", "500"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains-mono",
   display: "swap",
+  weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {
-      metadataBase: new URL("https://anujbhattarai.dev"),
-      title: "Anuj Bhattarai | Full Stack Engineer & AI/ML Developer",
-      description:
-        "Portfolio of Anuj Bhattarai — Full Stack Engineer & AI/ML Developer from Kathmandu, Nepal. Building intelligent web solutions with NLP, local LLMs, and modern full-stack technologies.",
-      keywords: [
-        "Anuj Bhattarai",
-        "Full Stack Developer",
-        "AI/ML Engineer",
-        "NLP",
-        "Nepal",
-        "Freelance Developer",
-        "Next.js",
-        "Python",
-        "Django",
-      ],
-      authors: [{ name: "Anuj Bhattarai" }],
-      openGraph: {
-        title: "Anuj Bhattarai | Full Stack Engineer & AI/ML Developer",
-        description:
-          "Building Intelligent Web Solutions — NLP tools, local LLM platforms, and full-stack applications.",
-        url: "https://anujbhattarai.dev",
-        siteName: "Anuj Bhattarai Portfolio",
-        locale: "en_US",
-        type: "website",
-        images: [
-          {
-            url: "/og-image.png",
-            width: 1200,
-            height: 630,
-            alt: "Anuj Bhattarai — Full Stack Engineer & AI/ML Developer",
-          },
-        ],
-      },
-      // Integrated Google Search Console verification code
-      verification: {
-        google: "yYjfItYLniSMy-zpz1VL_2waRcujw8BQPjgVz93NVE4",
-      },
+  metadataBase: new URL("https://anuj-bhattarai.com.np"),
+  title: {
+    default: "Anuj Bhattarai | Full Stack Engineer & AI/ML Developer",
+    template: "%s | Anuj Bhattarai",
+  },
+  description:
+    "Computer Engineering graduate from Pokhara University, Nepal. Full Stack Engineer and AI/ML Developer specializing in React, Next.js, Django, Spring Boot, NLP, and LLM integration. Open to freelance projects.",
+  keywords: [
+    "Anuj Bhattarai",
+    "Anuj Bhattarai Nepal",
+    "Anuj Bhattarai portfolio",
+    "Full Stack Developer Nepal",
+    "AI ML Engineer Nepal",
+    "AI ML Engineer Kathmandu",
+    "Next.js developer Nepal",
+    "React developer Nepal",
+    "Django developer Nepal",
+    "NLP engineer Nepal",
+    "freelance developer Nepal",
+    "Kathmandu developer",
+    "Pokhara University computer engineering",
+    "Katodozi",
+  ],
+  authors: [{ name: "Anuj Bhattarai", url: "https://anuj-bhattarai.com.np" }],
+  creator: "Anuj Bhattarai",
+  publisher: "Anuj Bhattarai",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://anuj-bhattarai.com.np",
+    siteName: "Anuj Bhattarai",
+    title: "Anuj Bhattarai | Full Stack Engineer & AI/ML Developer",
+    description:
+      "Computer Engineering graduate from Nepal building intelligent full-stack applications. Specializing in React, Next.js, Django, NLP, and LLM integration.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Anuj Bhattarai — Full Stack Engineer & AI/ML Developer",
+      },
+    ],
+  },
   twitter: {
     card: "summary_large_image",
     title: "Anuj Bhattarai | Full Stack Engineer & AI/ML Developer",
     description:
-      "Building Intelligent Web Solutions — NLP, AI/ML, and Full Stack Development.",
-    images: ["/og-image.png"],
+      "Computer Engineering graduate from Nepal building intelligent full-stack applications.",
+    images: ["/og-image.jpg"],
   },
-  robots: {
-    index: true,
-    follow: true,
+  alternates: {
+    canonical: "https://anuj-bhattarai.com.np",
   },
+  verification: {
+    google: "yYjfItYLniSMy-zpz1VL_2waRcujw8BQPjgVz93NVE4",
+  },
+  category: "technology",
 };
 
 export default function RootLayout({

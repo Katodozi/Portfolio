@@ -30,7 +30,7 @@ export default function SocialIcons({ size = 20, className }: SocialIconsProps) 
             target="_blank"
             rel="noopener noreferrer"
             aria-label={social.name}
-            className="text-muted transition-colors duration-200 hover:text-accent"
+            className="text-muted transition-colors duration-200 hover:text-primary"
             data-cursor="pointer"
           >
             <Icon size={size} />

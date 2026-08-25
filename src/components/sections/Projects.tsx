@@ -19,7 +19,7 @@ export default function Projects() {
       : projects.filter((p) => p.category === activeFilter);
 
   return (
-    <SectionWrapper id="projects" withAurora className="bg-surface/20">
+    <SectionWrapper id="projects">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -34,16 +34,16 @@ export default function Projects() {
         />
       </motion.div>
 
-      <div className="mb-10 flex flex-wrap gap-2">
+      <div className="mb-8 flex flex-wrap gap-2">
         {projectFilters.map((filter) => (
           <button
             key={filter.id}
             onClick={() => setActiveFilter(filter.id)}
             className={clsx(
-              "rounded-lg border px-4 py-2 font-mono text-sm transition-all duration-300",
+              "rounded-sharp border px-4 py-2 font-mono text-xs transition-all duration-200 md:text-sm",
               activeFilter === filter.id
-                ? "border-glow/50 bg-glow/10 text-accent glow-glow"
-                : "border-border bg-surface/60 text-muted hover:border-primary/40 hover:text-text"
+                ? "border-primary bg-primary/10 text-primary"
+                : "border-border bg-transparent text-muted hover:text-text-2"
             )}
             data-cursor="pointer"
           >
@@ -52,7 +52,7 @@ export default function Projects() {
         ))}
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {filteredProjects.map((project, index) => (
           <ProjectCard key={project.id} project={project} index={index} />
         ))}

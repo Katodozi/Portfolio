@@ -54,14 +54,14 @@ export default function Preloader({ onComplete }: PreloaderProps) {
               {personalInfo.name.split(" ").map((word, i) => (
                 <span key={i}>
                   {i > 0 && " "}
-                  <span className={i === 1 ? "text-accent" : ""}>{word}</span>
+                  <span className={i === 1 ? "text-primary" : ""}>{word}</span>
                 </span>
               ))}
             </motion.div>
 
             <div className="h-0.5 w-48 overflow-hidden rounded-full bg-border md:w-64">
               <motion.div
-                className="h-full rounded-full bg-accent glow-line"
+                className="h-full rounded-full bg-primary"
                 style={{ width: `${displayProgress}%` }}
                 transition={{ duration: 0.2 }}
               />

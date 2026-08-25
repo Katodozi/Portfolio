@@ -16,7 +16,7 @@ export default function Skills() {
   const activeGroup = skillGroups.find((g) => g.id === activeTab);
 
   return (
-    <SectionWrapper id="skills" withGrid>
+    <SectionWrapper id="skills">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -31,26 +31,20 @@ export default function Skills() {
         />
       </motion.div>
 
-      <div className="mb-8 flex flex-wrap gap-2">
+      <div className="mb-6 flex flex-wrap gap-2">
         {skillGroups.map((group) => (
           <button
             key={group.id}
             onClick={() => setActiveTab(group.id)}
             className={clsx(
-              "relative overflow-hidden rounded-lg border px-5 py-2.5 text-sm font-medium transition-all duration-300",
+              "rounded-sharp border px-4 py-2 font-mono text-xs transition-all duration-200 md:text-sm",
               activeTab === group.id
-                ? "border-accent/50 bg-accent/10 text-accent glow-accent"
-                : "border-border bg-surface/80 text-muted hover:border-glow/40 hover:text-text card-shine"
+                ? "border-primary bg-primary/10 text-primary"
+                : "border-border bg-transparent text-muted hover:text-text-2"
             )}
             data-cursor="pointer"
           >
             {group.label}
-            {activeTab === group.id && (
-              <motion.span
-                layoutId="skill-tab"
-                className="absolute inset-0 -z-10 bg-gradient-to-r from-accent/5 via-glow/5 to-primary/5"
-              />
-            )}
           </button>
         ))}
       </div>
@@ -62,9 +56,9 @@ export default function Skills() {
           initial="hidden"
           animate="visible"
           exit="hidden"
-          className="rounded-xl border border-border/60 bg-surface/40 p-6 backdrop-blur-sm md:p-8"
+          className="rounded-lg border border-border-2 bg-surface p-5 md:p-7"
         >
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-2">
             {activeGroup?.skills.map((skill, index) => (
               <SkillBadge key={skill} skill={skill} index={index} />
             ))}

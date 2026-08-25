@@ -12,6 +12,12 @@ interface ProjectCardProps {
   index: number;
 }
 
+const categoryLabels: Record<string, string> = {
+  "ai-ml": "AI/ML",
+  "full-stack": "Full Stack",
+  "web-scraping": "Web Scraping",
+};
+
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -27,11 +33,10 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     if (prefersReduced || isMobile) return;
 
     Tilt.init(card, {
-      max: 10,
+      max: 6,
       speed: 400,
-      glare: true,
-      "max-glare": 0.15,
-      scale: 1.03,
+      glare: false,
+      scale: 1.01,
     });
 
     return () => {
@@ -48,44 +53,38 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
-      className="card-shine group relative flex flex-col overflow-hidden rounded-xl border border-border/70 bg-surface/80 p-6 backdrop-blur-sm transition-all duration-300 hover:border-glow/40 hover:glow-glow"
+      className="project-card-glow group flex flex-col rounded-lg border border-border-2 bg-surface p-5 md:p-6"
       style={{ transformStyle: "preserve-3d" }}
     >
-      <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-glow/5 blur-2xl transition-all duration-500 group-hover:bg-accent/10" />
+      <span className="mb-3 inline-block self-start rounded-sharp bg-primary/10 px-2 py-0.5 font-mono text-[10px] text-primary">
+        {categoryLabels[project.category] ?? project.category}
+      </span>
 
-      <div className="mb-3 flex items-start justify-between">
-        <h3 className="font-heading text-lg font-semibold text-text transition-colors group-hover:text-accent">
-          {project.title}
-        </h3>
-        <span className="font-mono text-[10px] text-glow/60">
-          {String(index + 1).padStart(2, "0")}
-        </span>
-      </div>
+      <h3 className="mb-2 font-heading text-base font-semibold text-text md:text-lg">
+        {project.title}
+      </h3>
 
-      <p className="mb-4 flex-1 text-sm leading-relaxed text-muted">
+      <p className="mb-4 flex-1 text-sm leading-relaxed text-text-2">
         {project.description}
       </p>
 
-      <div className="mb-5 flex flex-wrap gap-2">
+      <div className="mb-4 flex flex-wrap gap-1.5">
         {project.tech.map((tech) => (
-          <span
-            key={tech}
-            className="rounded-md border border-border/50 bg-bg/60 px-2 py-0.5 font-mono text-xs text-muted transition-colors group-hover:border-primary/30"
-          >
+          <span key={tech} className="mono-tag">
             {tech}
           </span>
         ))}
       </div>
 
-      <div className="flex items-center gap-4 border-t border-border/40 pt-4">
+      <div className="flex items-center gap-4 border-t border-border pt-3">
         <a
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-accent"
+          className="flex items-center gap-1.5 font-mono text-xs text-muted transition-colors duration-200 hover:text-primary"
           data-cursor="pointer"
         >
-          <FiGithub size={16} />
+          <FiGithub size={15} />
           <span>Code</span>
         </a>
         {project.live && (
@@ -93,10 +92,10 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             href={project.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-highlight"
+            className="flex items-center gap-1.5 font-mono text-xs text-muted transition-colors duration-200 hover:text-primary"
             data-cursor="pointer"
           >
-            <FiExternalLink size={16} />
+            <FiExternalLink size={15} />
             <span>Live</span>
           </a>
         )}

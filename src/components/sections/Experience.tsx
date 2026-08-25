@@ -9,7 +9,7 @@ import { fadeInUp } from "@/lib/animations";
 
 export default function Experience() {
   return (
-    <SectionWrapper id="experience" withGrid>
+    <SectionWrapper id="experience">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -25,7 +25,7 @@ export default function Experience() {
       </motion.div>
 
       <div className="relative mx-auto max-w-2xl">
-        <div className="absolute left-[5px] top-0 hidden h-full w-px bg-gradient-to-b from-accent via-glow to-primary md:block" />
+        <div className="absolute left-[5px] top-0 hidden h-full w-px bg-border-2 md:block" />
         {experience.map((item, index) => (
           <TimelineItem
             key={item.id}

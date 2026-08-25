@@ -21,7 +21,7 @@ export default function ScrollProgress() {
   return (
     <div className="fixed left-0 top-0 z-[60] h-[2px] w-full">
       <div
-        className="h-full origin-left bg-gradient-to-r from-primary via-accent to-glow transition-transform duration-100 ease-out glow-line"
+        className="h-full origin-left bg-primary transition-transform duration-100 ease-out"
         style={{
           transform: `scaleX(${progress / 100})`,
           width: "100%",
