@@ -1,0 +1,61 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anuj-bhattarai.com.np/sitemap.xml
+
+#
+#   Hey there, fellow developer. You found the secret.
+#   Not many people check robots.txt. You're one of us.
+#
+#
+#        ██████████████████████████████████████████
+#        ██                                      ██
+#        ██   > anuj@portfolio:~$ whoami         ██
+#        ██                                      ██
+#        ██     Anuj Bhattarai                   ██
+#        ██     Full Stack Engineer              ██
+#        ██     AI / ML Developer                ██
+#        ██     NLP Researcher                   ██
+#        ██                                      ██
+#        ██   > anuj@portfolio:~$ ls skills/     ██
+#        ██                                      ██
+#        ██     react/    django/    nextjs/     ██
+#        ██     python/   java/      nlp/        ██
+#        ██     llm/      rag/       mongodb/    ██
+#        ██                                      ██
+#        ██   > anuj@portfolio:~$ cat about.txt  ██
+#        ██                                      ██
+#        ██     Building things that matter.     ██
+#        ██     One commit at a time.            ██
+#        ██                                      ██
+#        ██   > anuj@portfolio:~$ _              ██
+#        ██                                      ██
+#        ██████████████████████████████████████████
+#
+#
+#        .----------------.
+#        | if you can read |
+#        | this, you think |
+#        | like a dev  :)  |
+#        '----------------'
+#
+#
+#              ___
+#             /   \
+#            | o o |    < Nepal's NLP is being built.
+#            |  ^  |      One Devanagari token at a time.
+#            | \_/ |
+#             \___/
+#             /   \
+#            / | | \
+#
+#
+#   ┌─────────────────────────────────────────────┐
+#   │  github.com/Katodozi                        │
+#   │  anuj-bhattarai.com.np                      │
+#   │  anuzbhattarai12@gmail.com                  │
+#   └─────────────────────────────────────────────┘
+#
+#   No bots were harmed in the making of this portfolio.
+#   Humans, however, may experience inspiration.
+#
