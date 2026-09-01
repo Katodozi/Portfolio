@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 import { skillGroups } from "@/lib/data";
 import SkillBadge from "@/components/ui/SkillBadge";
+import SkillBars from "@/components/ui/SkillBars";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
@@ -30,6 +31,8 @@ export default function Skills() {
           subtitle="A diverse toolkit spanning AI/ML, full-stack development, CMS/SEO, and DevOps."
         />
       </motion.div>
+
+      <SkillBars />
 
       <div className="mb-6 flex flex-wrap gap-2">
         {skillGroups.map((group) => (

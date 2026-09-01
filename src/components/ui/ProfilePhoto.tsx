@@ -73,13 +73,16 @@ export default function ProfilePhoto({
         isAboutSticky && "w-full max-w-[300px] rounded-xl border border-primary/20 profile-glow",
         isAboutMobile && "w-full max-h-[300px] rounded-xl border border-primary/20 profile-glow",
         size === "hero" &&
-          "rounded-lg border border-border-2 w-[280px] md:w-[340px] lg:w-[380px]",
+          "rounded-lg border border-primary/35 w-[210px] md:w-[250px] lg:w-[280px]",
         size === "about" && layout === "default" &&
           "rounded-lg border border-border-2 w-[200px] md:w-[260px] lg:w-[280px]"
       )}
       style={
         size === "hero"
-          ? { boxShadow: "0 0 40px rgba(91, 184, 212, 0.1)" }
+          ? {
+              boxShadow:
+                "0 0 0 1px rgba(91, 184, 212, 0.18), 0 12px 40px rgba(0, 0, 0, 0.45)",
+            }
           : undefined
       }
     >

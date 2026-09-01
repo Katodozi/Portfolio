@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 interface SectionWrapperProps {
   id: string;
@@ -18,8 +19,9 @@ export default function SectionWrapper({
   return (
     <section
       id={id}
-      className={`section-padding relative overflow-hidden ${className}`}
+      className={`section-padding relative overflow-visible ${className}`}
     >
+      <SectionDivider />
       <div className="section-container relative z-10">{children}</div>
     </section>
   );

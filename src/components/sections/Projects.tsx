@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import clsx from "clsx";
 import { projects, projectFilters } from "@/lib/data";
 import ProjectCard from "@/components/ui/ProjectCard";
+import CodeTerminal from "@/components/ui/CodeTerminal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { fadeInUp } from "@/lib/animations";
@@ -33,6 +34,8 @@ export default function Projects() {
           subtitle="Open-source tools and full-stack applications — from NLP research to production-ready platforms."
         />
       </motion.div>
+
+      <CodeTerminal />
 
       <div className="mb-8 flex flex-wrap gap-2">
         {projectFilters.map((filter) => (

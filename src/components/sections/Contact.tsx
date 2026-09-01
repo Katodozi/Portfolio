@@ -39,7 +39,7 @@ export default function Contact() {
         variants={fadeInUp}
       >
         <SectionHeading
-          number="08."
+          number="09."
           title="Get In"
           highlight="Touch"
           subtitle="Have a project in mind? Let's build something intelligent together."

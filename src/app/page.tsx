@@ -13,7 +13,9 @@ import Experience from "@/components/sections/Experience";
 import Education from "@/components/sections/Education";
 import Certifications from "@/components/sections/Certifications";
 import Contact from "@/components/sections/Contact";
+import Testimonials from "@/components/sections/Testimonials";
 import ParticleCanvas from "@/components/sections/ParticleCanvas";
+import AvailabilityBanner from "@/components/layout/AvailabilityBanner";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -81,6 +83,7 @@ export default function Home() {
         <div className="hero-grid pointer-events-none fixed inset-0 z-0" aria-hidden="true" />
         <div className="relative z-[1]">
           <ScrollProgress />
+          <AvailabilityBanner />
           <Navbar />
           <Hero />
           <About />
@@ -89,6 +92,7 @@ export default function Home() {
           <Experience />
           <Education />
           <Certifications />
+          <Testimonials />
           <Contact />
           <Footer />
         </div>

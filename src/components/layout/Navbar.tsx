@@ -45,7 +45,7 @@ export default function Navbar() {
     setMobileOpen(false);
     const target = document.querySelector(href);
     if (target && lenis) {
-      lenis.scrollTo(target as HTMLElement, { offset: -80, duration: 1.2 });
+      lenis.scrollTo(target as HTMLElement, { offset: -120, duration: 1.2 });
     } else if (target) {
       target.scrollIntoView({ behavior: "smooth" });
     }
@@ -57,7 +57,7 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.5 }}
       className={clsx(
-        "fixed left-0 right-0 top-0 z-50 transition-all duration-300",
+        "fixed left-0 right-0 top-9 z-50 transition-all duration-300",
         scrolled ? "glass-nav py-3" : "bg-transparent py-5"
       )}
     >

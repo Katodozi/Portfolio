@@ -135,7 +135,7 @@ export default function Hero() {
   const handleScrollTo = (selector: string) => {
     const target = document.querySelector(selector);
     if (target && lenis) {
-      lenis.scrollTo(target as HTMLElement, { offset: -80, duration: 1.4 });
+      lenis.scrollTo(target as HTMLElement, { offset: -120, duration: 1.4 });
     }
   };
 
@@ -146,9 +146,10 @@ export default function Hero() {
       <section
         id="hero"
         ref={sectionRef}
-        className="relative flex min-h-screen flex-col justify-center overflow-hidden pt-24 section-padding"
+        className="relative flex min-h-screen flex-col justify-center overflow-hidden pt-32 section-padding"
       >
         <div className="hero-radial absolute inset-0 z-0" aria-hidden="true" />
+        <div className="noise-overlay z-0" style={{ opacity: 0.055 }} aria-hidden="true" />
 
         <div className="section-container relative z-[1]">
           <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto] lg:gap-14">

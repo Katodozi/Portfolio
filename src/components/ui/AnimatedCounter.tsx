@@ -15,7 +15,7 @@ export default function AnimatedCounter({
   label,
 }: AnimatedCounterProps) {
   const [count, setCount] = useState(0);
-  const { ref, inView } = useInView({ threshold: 0.5, triggerOnce: true });
+  const { ref, inView } = useInView({ threshold: 0.35, triggerOnce: true });
   const hasAnimated = useRef(false);
 
   useEffect(() => {

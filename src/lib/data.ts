@@ -56,6 +56,7 @@ export const navItems: NavItem[] = [
   { id: "about", label: "About", href: "#about" },
   { id: "skills", label: "Skills", href: "#skills" },
   { id: "projects", label: "Projects", href: "#projects" },
+  { id: "testimonials", label: "References", href: "#testimonials" },
   { id: "experience", label: "Experience", href: "#experience" },
   { id: "education", label: "Education", href: "#education" },
   { id: "certifications", label: "Certs", href: "#certifications" },
@@ -64,7 +65,7 @@ export const navItems: NavItem[] = [
 
 export const stats: Stat[] = [
   { id: "internships", label: "Internships", value: 2 },
-  { id: "projects", label: "Projects", value: 6, suffix: "+" },
+  { id: "projects", label: "Projects", value: 7, suffix: "+" },
   { id: "certifications", label: "IBM Certifications", value: 1 },
 ];
 
@@ -141,7 +142,52 @@ export const skillGroups: SkillGroup[] = [
   },
 ];
 
+export const skillProficiency = [
+  { name: "Python", level: 85 },
+  { name: "React / Next.js", level: 78 },
+  { name: "Django", level: 75 },
+  { name: "NLP / LLMs", level: 72 },
+  { name: "TypeScript", level: 70 },
+  { name: "Docker / DevOps", level: 62 },
+];
+
+export const testimonials = [
+  {
+    id: "placeholder-1",
+    quote:
+      "Demonstrated dedication, professionalism, and a willingness to learn throughout his internship period. He actively contributed to the development of an AI-Powered Auto Bill Scan and Record Keeping System, where he was involved in data processing, document digitization, and AI-based automation tasks.",
+    name: "Suraj Koirala",
+    role: "CEO · CodeQuant",
+    placeholder: true,
+  },
+  {
+    id: "placeholder-2",
+    quote:
+      "Anuj is a dedicated employee at Codavatar, where he has demonstrated a strong commitment to learning and contributing to the development of Enterprise websites and optimize their content for SEO. He was involved in data processing, document digitization, and AI-based automation tasks, showing a proactive approach to problem-solving and a willingness to take on new challenges.",
+    name: "Ishwor Tamang",
+    role: "Team Lead · Codavatar",
+    placeholder: true,
+  },
+  // {
+  //   id: "placeholder-3",
+  //   quote:
+  //     "Optional third testimonial. You can replace these three cards with real reviews anytime.",
+  //   name: "Name",
+  //   role: "Role · Company",
+  //   placeholder: true,
+  // },
+];
+
 export const projects: Project[] = [
+  {
+    id: "maxx-boxing",
+    title: "MaxX Boxing Club",
+    description:
+      "A full-stack Next.js site and admin CMS for a boxing gym — from a parallax marketing site to authenticated content management. NextAuth-protected admin for coaches, blog posts, news, and memberships. Data layer redesigned to fail over from local JSON to Upstash Redis after Vercel’s read-only filesystem, with zero changes to the rest of the app.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "NextAuth", "Upstash Redis"],
+    category: "full-stack",
+    github: "https://github.com/Katodozi",
+  },
   {
     id: "nepali-summarizer",
     title: "Nepali Text Summarizer",
