@@ -66,7 +66,7 @@ export default function Testimonials() {
               className="flex flex-col rounded-lg border border-border-2 bg-surface p-5 md:p-6"
             >
               <p className="flex-1 text-sm leading-relaxed text-text-2">
-                "{item.quote}"
+              &ldquo;{item.quote}&rdquo;
               </p>
               <footer className="mt-5 flex items-center gap-3 border-t border-border pt-4">
 
