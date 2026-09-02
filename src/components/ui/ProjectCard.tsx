@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
-import Tilt from "vanilla-tilt";
+import gsap from "gsap";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import type { Project } from "@/types";
 import { cardVariants } from "@/lib/animations";
@@ -21,29 +21,34 @@ const categoryLabels: Record<string, string> = {
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  const handleMove = (e: React.MouseEvent) => {
     const card = cardRef.current;
     if (!card) return;
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+    if (window.innerWidth < 768) return;
 
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    const isMobile = window.innerWidth < 768;
-
-    if (prefersReduced || isMobile) return;
-
-    Tilt.init(card, {
-      max: 6,
-      speed: 400,
-      glare: false,
-      scale: 1.01,
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    gsap.to(card, {
+      rotateY: x * 12,
+      rotateX: -y * 12,
+      duration: 0.3,
+      ease: "power1.out",
+      transformPerspective: 800,
     });
+  };
 
-    return () => {
-      const el = card as HTMLElement & { vanillaTilt?: { destroy: () => void } };
-      el.vanillaTilt?.destroy();
-    };
-  }, []);
+  const handleLeave = () => {
+    const card = cardRef.current;
+    if (!card) return;
+    gsap.to(card, {
+      rotateY: 0,
+      rotateX: 0,
+      duration: 0.6,
+      ease: "elastic.out(1, 0.4)",
+    });
+  };
 
   return (
     <motion.div
@@ -53,6 +58,8 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
+      onMouseMove={handleMove}
+      onMouseLeave={handleLeave}
       className="project-card-glow group flex flex-col rounded-lg border border-border-2 bg-surface p-5 md:p-6"
       style={{ transformStyle: "preserve-3d" }}
     >
@@ -81,7 +88,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1.5 font-mono text-xs text-muted transition-colors duration-200 hover:text-primary"
+          className="link-underline flex items-center gap-1.5 font-mono text-xs text-muted transition-colors duration-200 hover:text-primary"
           data-cursor="pointer"
         >
           <FiGithub size={15} />
@@ -92,7 +99,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             href={project.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 font-mono text-xs text-muted transition-colors duration-200 hover:text-primary"
+            className="link-underline flex items-center gap-1.5 font-mono text-xs text-muted transition-colors duration-200 hover:text-primary"
             data-cursor="pointer"
           >
             <FiExternalLink size={15} />

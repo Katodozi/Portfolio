@@ -20,7 +20,7 @@ const techStack = [
 ];
 
 export default function Marquee() {
-  const items = [...techStack, ...techStack];
+  const items = [...techStack, ...techStack, ...techStack];
 
   return (
     <div className="relative overflow-hidden border-y border-border bg-surface py-3">
@@ -34,7 +34,7 @@ export default function Marquee() {
             className="flex items-center gap-6 font-mono text-xs text-muted md:text-sm"
           >
             {item}
-            <span className="text-muted/50">{"//"}</span>
+            <span className="text-muted/50">--</span>
           </span>
         ))}
       </div>

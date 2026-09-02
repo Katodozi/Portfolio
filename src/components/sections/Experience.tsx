@@ -1,13 +1,59 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { experience } from "@/lib/data";
 import TimelineItem from "@/components/ui/TimelineItem";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import { fadeInUp } from "@/lib/animations";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Experience() {
+  const lineRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      if (!lineRef.current || !listRef.current) return;
+
+      const prefersReduced = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+      if (prefersReduced) return;
+
+      gsap.from(lineRef.current, {
+        scaleY: 0,
+        transformOrigin: "top center",
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: listRef.current,
+          start: "top 60%",
+          end: "bottom 70%",
+          scrub: 1,
+        },
+      });
+
+      const nodes = listRef.current.querySelectorAll("[data-timeline-dot]");
+      gsap.from(nodes, {
+        scale: 0,
+        opacity: 0,
+        stagger: 0.3,
+        duration: 0.4,
+        ease: "back.out(2)",
+        scrollTrigger: {
+          trigger: listRef.current,
+          start: "top 60%",
+        },
+      });
+    },
+    { scope: listRef }
+  );
+
   return (
     <SectionWrapper id="experience">
       <motion.div
@@ -24,8 +70,11 @@ export default function Experience() {
         />
       </motion.div>
 
-      <div className="relative mx-auto max-w-2xl">
-        <div className="absolute left-[5px] top-0 hidden h-full w-px bg-border-2 md:block" />
+      <div ref={listRef} className="relative mx-auto max-w-2xl">
+        <div
+          ref={lineRef}
+          className="absolute left-[5px] top-0 hidden h-full w-px origin-top bg-border-2 md:block"
+        />
         {experience.map((item, index) => (
           <TimelineItem
             key={item.id}

@@ -105,6 +105,7 @@ export default function TimelineItem({
       <div className="relative flex flex-col items-center">
         <div
           ref={dotRef}
+          data-timeline-dot
           className={clsx(
             "relative z-10 h-3 w-3 rounded-full bg-primary pulse-glow",
             ongoing && "ring-2 ring-primary/30"

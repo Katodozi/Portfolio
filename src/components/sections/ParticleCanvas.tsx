@@ -2,15 +2,6 @@
 
 import { useEffect, useRef } from "react";
 
-type Drop = {
-  x: number;
-  y: number;
-  length: number;
-  speed: number;
-  opacity: number;
-  width: number;
-};
-
 export default function ParticleCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -26,7 +17,9 @@ export default function ParticleCanvas() {
     if (prefersReduced) return;
 
     const isMobile = window.innerWidth < 768;
-    const DROP_COUNT = isMobile ? 55 : 110;
+    const PARTICLE_COUNT = isMobile ? 30 : 70;
+    const CONNECTION_DISTANCE = 120;
+    const PARTICLE_COLOR = "rgba(91, 184, 212,";
 
     const setCanvasSize = () => {
       canvas.width = window.innerWidth;
@@ -35,16 +28,23 @@ export default function ParticleCanvas() {
 
     setCanvasSize();
 
-    const makeDrop = (): Drop => ({
+    type Particle = {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      opacity: number;
+      radius: number;
+    };
+
+    const particles: Particle[] = Array.from({ length: PARTICLE_COUNT }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      length: 8 + Math.random() * 18,
-      speed: 2.2 + Math.random() * 4.2,
-      opacity: 0.28 + Math.random() * 0.55,
-      width: 0.6 + Math.random() * 1.1,
-    });
-
-    const drops: Drop[] = Array.from({ length: DROP_COUNT }, makeDrop);
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      opacity: Math.random() * 0.5 + 0.2,
+      radius: 1.2 + Math.random() * 1.6,
+    }));
 
     let animId: number;
 
@@ -52,28 +52,34 @@ export default function ParticleCanvas() {
       if (!ctx || !canvas) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      drops.forEach((d) => {
-        const gradient = ctx.createLinearGradient(d.x, d.y, d.x, d.y + d.length);
-        gradient.addColorStop(0, `rgba(91, 184, 212, 0)`);
-        gradient.addColorStop(0.35, `rgba(100, 255, 218, ${d.opacity * 0.45})`);
-        gradient.addColorStop(1, `rgba(91, 184, 212, ${d.opacity})`);
-
-        ctx.beginPath();
-        ctx.strokeStyle = gradient;
-        ctx.lineWidth = d.width;
-        ctx.lineCap = "round";
-        ctx.moveTo(d.x, d.y);
-        ctx.lineTo(d.x + 0.4, d.y + d.length);
-        ctx.stroke();
-
-        d.y += d.speed;
-        d.x += 0.12;
-
-        if (d.y > canvas.height + 20) {
-          d.y = -d.length;
-          d.x = Math.random() * canvas.width;
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < CONNECTION_DISTANCE) {
+            const alpha = (1 - dist / CONNECTION_DISTANCE) * 0.08;
+            ctx.strokeStyle = `rgba(91, 184, 212, ${alpha})`;
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
         }
-        if (d.x > canvas.width) d.x = 0;
+      }
+
+      particles.forEach((p) => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `${PARTICLE_COLOR}${p.opacity})`;
+        ctx.fill();
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
       });
 
       animId = requestAnimationFrame(draw);
@@ -81,7 +87,9 @@ export default function ParticleCanvas() {
 
     draw();
 
-    const handleResize = () => setCanvasSize();
+    const handleResize = () => {
+      setCanvasSize();
+    };
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -93,7 +101,7 @@ export default function ParticleCanvas() {
   return (
     <canvas
       ref={canvasRef}
-      className="pointer-events-none fixed inset-0 h-full w-full opacity-80"
+      className="pointer-events-none fixed inset-0 h-full w-full opacity-60"
       style={{ zIndex: 0 }}
       aria-hidden="true"
     />

@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState, ReactNode } from "react";
+import { useRef, ReactNode } from "react";
+import gsap from "gsap";
 import clsx from "clsx";
 
 interface MagneticButtonProps {
@@ -27,18 +28,29 @@ export default function MagneticButton({
   type = "button",
 }: MagneticButtonProps) {
   const ref = useRef<HTMLAnchorElement & HTMLButtonElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!ref.current) return;
+    if (window.matchMedia("(pointer: coarse)").matches) return;
     const rect = ref.current.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    setPosition({ x: x * 0.15, y: y * 0.15 });
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    gsap.to(ref.current, {
+      x: (e.clientX - centerX) * 0.3,
+      y: (e.clientY - centerY) * 0.3,
+      duration: 0.3,
+      ease: "power2.out",
+    });
   };
 
   const handleMouseLeave = () => {
-    setPosition({ x: 0, y: 0 });
+    if (!ref.current) return;
+    gsap.to(ref.current, {
+      x: 0,
+      y: 0,
+      duration: 0.5,
+      ease: "elastic.out(1, 0.3)",
+    });
   };
 
   const baseStyles = clsx(
@@ -49,14 +61,6 @@ export default function MagneticButton({
     className
   );
 
-  const style = {
-    transform: `translate(${position.x}px, ${position.y}px)`,
-    transition:
-      position.x === 0 && position.y === 0
-        ? "transform 0.3s ease, background-color 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s"
-        : "transform 0.1s ease",
-  };
-
   if (href) {
     return (
       <a
@@ -66,7 +70,6 @@ export default function MagneticButton({
         target={target}
         rel={rel}
         className={baseStyles}
-        style={style}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         data-cursor="pointer"
@@ -82,7 +85,6 @@ export default function MagneticButton({
       type={type}
       onClick={onClick}
       className={baseStyles}
-      style={style}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       data-cursor="pointer"

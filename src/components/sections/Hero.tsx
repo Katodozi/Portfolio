@@ -92,19 +92,6 @@ export default function Hero() {
           scrub: 1.5,
         },
       });
-
-      if (photoRef.current) {
-        gsap.to(photoRef.current, {
-          yPercent: -12,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: 1.5,
-          },
-        });
-      }
     },
     { scope: sectionRef }
   );
@@ -161,7 +148,7 @@ export default function Hero() {
               <h1
                 ref={nameRef}
                 className="mb-4 font-heading font-bold tracking-tight text-text"
-                style={{ fontSize: "clamp(3rem, 8vw, 6rem)", lineHeight: 1.05 }}
+                style={{ fontSize: "clamp(2.4rem, 6vw, 4.2rem)", lineHeight: 1.05 }}
               >
                 {nameParts.map((char, i) => (
                   <span
@@ -183,8 +170,24 @@ export default function Hero() {
                 ))}
               </h1>
 
-              <p className="hero-reveal mb-3 font-heading text-xl font-semibold text-text-2 opacity-0 sm:text-2xl md:text-3xl">
-                <span className="text-gradient">{personalInfo.tagline}</span>
+              <p
+                className="hero-reveal mb-4 font-heading font-bold opacity-0"
+                style={{
+                  fontSize: "clamp(2.8rem, 7vw, 5.5rem)",
+                  lineHeight: 1.05,
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                <span className="block text-text">Building</span>
+                <span className="block">
+                  <span
+                    className="text-primary"
+                    style={{ textShadow: "0 0 40px rgba(91,184,212,0.3)" }}
+                  >
+                    Intelligent
+                  </span>
+                </span>
+                <span className="block text-text">Web Solutions.</span>
               </p>
 
               <p className="hero-reveal mb-2 font-mono text-sm text-accent opacity-0 md:text-base">

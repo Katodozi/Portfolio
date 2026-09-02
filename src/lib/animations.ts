@@ -24,8 +24,15 @@ export const staggerContainer: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.06,
-      delayChildren: 0.15,
+      staggerChildren: 0.03,
+      delayChildren: 0.1,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      staggerChildren: 0.02,
+      staggerDirection: -1,
     },
   },
 };
@@ -49,28 +56,28 @@ export const lineReveal: Variants = {
 };
 
 export const badgeVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.8, y: 15 },
+  hidden: { opacity: 0, y: 10 },
   visible: {
     opacity: 1,
-    scale: 1,
     y: 0,
-    transition: { duration: 0.4, ease: locomotionEase },
+    transition: { duration: 0.25, ease: locomotionEase },
   },
   exit: {
     opacity: 0,
-    scale: 0.8,
-    transition: { duration: 0.2 },
+    y: -10,
+    transition: { duration: 0.15 },
   },
 };
 
 export const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 60, rotateX: 8 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
+    rotateX: 0,
     transition: {
-      delay: i * 0.08,
-      duration: 0.6,
+      delay: i * 0.1,
+      duration: 0.7,
       ease: [0.22, 0.61, 0.36, 1],
     },
   }),

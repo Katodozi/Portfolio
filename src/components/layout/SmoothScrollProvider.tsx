@@ -20,6 +20,25 @@ export default function SmoothScrollProvider({
     const lenis = lenisRef.current?.lenis;
     if (!lenis) return;
 
+    const scroller = document.documentElement;
+
+    ScrollTrigger.scrollerProxy(scroller, {
+      scrollTop(value) {
+        if (arguments.length) {
+          lenis.scrollTo(value as number, { immediate: true });
+        }
+        return lenis.scroll;
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight,
+        };
+      },
+    });
+
     lenis.on("scroll", ScrollTrigger.update);
 
     const rafCallback = (time: number) => {

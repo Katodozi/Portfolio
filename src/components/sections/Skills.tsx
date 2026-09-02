@@ -58,7 +58,7 @@ export default function Skills() {
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          exit="hidden"
+          exit="exit"
           className="rounded-lg border border-border-2 bg-surface p-5 md:p-7"
         >
           <div className="flex flex-wrap gap-2">

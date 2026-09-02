@@ -19,12 +19,13 @@ export default function ScrollProgress() {
   }, [lenis]);
 
   return (
-    <div className="fixed left-0 top-0 z-[60] h-[2px] w-full">
+    <div className="pointer-events-none fixed left-0 top-0 z-[99999] h-[2px] w-full">
       <div
-        className="h-full origin-left bg-primary transition-transform duration-100 ease-out"
+        className="h-full origin-left"
         style={{
-          transform: `scaleX(${progress / 100})`,
-          width: "100%",
+          width: `${progress}%`,
+          background: "linear-gradient(90deg, var(--color-primary), var(--color-accent))",
+          boxShadow: "0 0 8px rgba(91,184,212,0.5)",
         }}
       />
     </div>

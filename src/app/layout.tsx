@@ -4,6 +4,7 @@ import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/layout/SmoothScrollProvider";
 import CustomCursor from "@/components/layout/CustomCursor";
+import AuroraBackground from "@/components/layout/AuroraBackground";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -109,6 +110,7 @@ export default function RootLayout({
     >
       <body className="font-body antialiased">
         <SmoothScrollProvider>
+          <AuroraBackground />
           <CustomCursor />
           {children}
         </SmoothScrollProvider>

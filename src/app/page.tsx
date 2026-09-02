@@ -81,7 +81,7 @@ export default function Home() {
       >
         <ParticleCanvas />
         <div className="hero-grid pointer-events-none fixed inset-0 z-0" aria-hidden="true" />
-        <div className="relative z-[1]">
+        <div className="relative z-[2]">
           <ScrollProgress />
           <AvailabilityBanner />
           <Navbar />

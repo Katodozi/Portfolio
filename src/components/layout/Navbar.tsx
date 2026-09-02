@@ -76,7 +76,7 @@ export default function Navbar() {
               <button
                 onClick={() => handleNavClick(item.href)}
                 className={clsx(
-                  "rounded-sharp px-3 py-2 font-mono text-xs transition-colors duration-200 lg:text-sm",
+                  "link-underline relative rounded-sharp px-3 py-2 font-mono text-xs transition-colors duration-200 lg:text-sm",
                   activeSection === item.id
                     ? "text-primary glow-text-nav-active"
                     : "text-text-2 hover:text-primary"
