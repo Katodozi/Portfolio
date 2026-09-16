@@ -257,7 +257,6 @@ export const experience: Experience[] = [
     company: "Entegra (Codavatar)",
     role: "WordPress & SEO Intern",
     duration: "3 months",
-    ongoing: true,
   },
 ];
 
