@@ -75,7 +75,7 @@ export default function Certifications() {
                 data-cursor="pointer"
               >
                 <FiExternalLink size={12} className="text-muted" />
-                Verify on Credly
+                Verify
               </a>
             </div>
           </motion.div>
