@@ -11,16 +11,16 @@ import type {
 
 export const personalInfo: PersonalInfo = {
   name: "Anuj Bhattarai",
-  title: "Full Stack Engineer & AI/ML Developer",
-  tagline: "Building Intelligent Web Solutions",
+  title: "Full Stack Digital Marketer & SEO Specialist",
+  tagline: "Building and Delivering Web Solutions",
   location: "Kathmandu, Nepal",
   email: "anuzbhattarai12@gmail.com",
   about:
-    "Computer Engineering graduate (Pokhara University, 2026) specializing in AI/ML engineering and Full Stack development. Built one of Nepal's few open-source NLP tools for the Nepali language (17M+ speakers). Developed locally-hosted LLM platforms with zero paid API dependency. IBM-certified in AI Fundamentals (2026).",
+    "Computer Engineering graduate (Pokhara University, 2026) specializing in Full Stack web development and Digital Marketing. Hands on experience in building and delivering web solutions. Built one of Nepal's few open-source NLP tools for the Nepali language (17M+ speakers). Developed locally-hosted LLM platforms with zero paid API dependency. IBM-certified in AI Fundamentals (2026).",
   typewriterRoles: [
-    "Full Stack Engineer",
-    "AI/ML Developer",
-    "NLP Researcher",
+    "Full Stack Digital Marketer",
+    "Web Developer",
+    "AI/ML/NLP Researcher",
   ],
   cvPath: "/cv/anuj-bhattarai-cv.pdf",
   profileImage: "/images/profile.webp",
@@ -102,7 +102,7 @@ export const skillGroups: SkillGroup[] = [
       "CSS3",
       "Java",
       "Spring Boot",
-      "Spring Security",
+      "php",
       "JWT",
       "Django",
       "Django REST Framework",
@@ -121,9 +121,11 @@ export const skillGroups: SkillGroup[] = [
     label: "CMS/SEO",
     skills: [
       "WordPress",
+      "WooCommerce",
       "Elementor",
       "Yoast SEO",
       "RankMath",
+      "Theme Customization",
       "Google Analytics",
       "Google Search Console",
     ],
@@ -137,18 +139,18 @@ export const skillGroups: SkillGroup[] = [
       "GitHub",
       "GitHub Actions",
       "Linux",
-      "Apache Kafka",
+      "Vercel",
     ],
   },
 ];
 
 export const skillProficiency = [
-  { name: "Python", level: 85 },
-  { name: "React / Next.js", level: 78 },
+  { name: "Python", level: 80 },
+  { name: "React / Next.js", level: 70 },
   { name: "Django", level: 75 },
-  { name: "NLP / LLMs", level: 72 },
-  { name: "TypeScript", level: 70 },
-  { name: "Docker / DevOps", level: 62 },
+  { name: "NLP / LLMs", level: 60 },
+  { name: "Wordpress", level: 90 },
+  { name: "SEO and Analytics", level: 80 },
 ];
 
 export const testimonials = [
@@ -186,7 +188,34 @@ export const projects: Project[] = [
       "A full-stack Next.js site and admin CMS for a boxing gym — from a parallax marketing site to authenticated content management. NextAuth-protected admin for coaches, blog posts, news, and memberships. Data layer redesigned to fail over from local JSON to Upstash Redis after Vercel’s read-only filesystem, with zero changes to the rest of the app.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "NextAuth", "Upstash Redis"],
     category: "full-stack",
-    github: "https://github.com/Katodozi",
+    github: "https://boxing-club-site-puce.vercel.app/",
+  },
+  {
+    id: "incorpos",
+    title: "IncorpOS",
+    description:
+      "Platform to help get registered agent, entity formation, law and compliance services espicially the different states of USA.",
+    tech: ["Wordpress", "HTML", "CSS", "JavaScript", "Elementor", "php", "RankMath", "Google Analytics"],
+    category: "web & seo",
+    github: "https://incorpos.com/",
+  },
+  {
+    id: "cdraustralia",
+    title: "CDR Australia",
+    description:
+      "Expert CDR report writing services for Engineers Australia: Perfectly written CDR, RPL, CPD, and Summary Statements by our expert Engineers.",
+    tech: ["Wordpress", "HTML", "CSS", "JavaScript", "Elementor", "php", "RankMath,"],
+    category: "web & seo",
+    github: "https://cdraustraliamigration.com/",
+  },
+  {
+    id: "edpandnation",
+    title: "Expand Nation",
+    description:
+      "Expand Nation is a platform that helps businesses grow and expand their operations to new markets abroad in different nation in a legal manner.",
+    tech: ["Wordpress", "HTML", "CSS", "JavaScript", "Elementor", "php", "RankMath"],
+    category: "web & seo",
+    github: "https://expandnation.com/",
   },
   {
     id: "nepali-summarizer",
@@ -217,14 +246,14 @@ export const projects: Project[] = [
     github: "https://github.com/Katodozi",
   },
 
-    {
-      id: "job-scraper",
-      title: "E-Learning Platform",
-      category: "full-stack",
-      description: "A one-stop learning platform covering frontend, backend, DevOps and more. Lets users browse courses, join discussions, and track their progress.",
-      tech: ["React", "FastAPI", "Tailwindcss", "GEMINI", "Postgres", "Docker", "LLM"],
-      github: "https://github.com/Katodozi/E-Learning-Platform",
-    },
+  {
+    id: "job-scraper",
+    title: "E-Learning Platform",
+    category: "full-stack",
+    description: "A one-stop learning platform covering frontend, backend, DevOps and more. Lets users browse courses, join discussions, and track their progress.",
+    tech: ["React", "FastAPI", "Tailwindcss", "GEMINI", "Postgres", "Docker", "LLM"],
+    github: "https://github.com/Katodozi/E-Learning-Platform",
+  },
   {
     id: "journal-app",
     title: "Journal App — Spring Boot + React",
@@ -258,6 +287,12 @@ export const experience: Experience[] = [
     role: "WordPress & SEO Intern",
     duration: "3 months",
   },
+  {
+    id: "codavatar",
+    company: "Codavatar",
+    role: "WordPress & SEO Trainee",
+    duration: "1 months",
+  },
 ];
 
 export const education: Education[] = [
@@ -285,11 +320,19 @@ export const certifications: Certification[] = [
     verifyUrl:
       "https://www.credly.com/badges/79b405f8-1d24-43ca-bb63-f4cbc9236558",
   },
+  {
+    id: "hackathon",
+    name: "Hack4SafeFood: Hackathon for Innovating Food Safety in Nepal",
+    issuer: "Vertex Special Technologies",
+    date: "June 2025",
+    verifyUrl:
+      "https://www.linkedin.com/feed/update/urn:li:activity:7398960933974216704/",
+  },
 ];
 
 export const projectFilters = [
   { id: "all" as const, label: "All" },
   { id: "ai-ml" as const, label: "AI/ML" },
   { id: "full-stack" as const, label: "Full Stack" },
-  { id: "web-scraping" as const, label: "Web Scraping" },
+  { id: "Web & SEO" as const, label: "Web & SEO" },
 ];

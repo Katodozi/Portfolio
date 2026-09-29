@@ -1,6 +1,6 @@
 export type SkillCategory = "ai-ml" | "full-stack" | "cms-seo" | "devops";
 
-export type ProjectCategory = "all" | "ai-ml" | "full-stack" | "web-scraping";
+export type ProjectCategory = "all" | "ai-ml" | "full-stack" | "web & seo";
 
 export interface SocialLink {
   name: string;
