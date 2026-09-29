@@ -334,5 +334,5 @@ export const projectFilters = [
   { id: "all" as const, label: "All" },
   { id: "ai-ml" as const, label: "AI/ML" },
   { id: "full-stack" as const, label: "Full Stack" },
-  { id: "Web & SEO" as const, label: "Web & SEO" },
+  { id: "web & seo" as const, label: "Web & SEO" },
 ];
