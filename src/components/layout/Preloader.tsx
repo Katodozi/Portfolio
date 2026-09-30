@@ -421,7 +421,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
               </div>
               <div className="flex items-center justify-between">
                 <span className="font-mono text-xs text-muted">
-                  // loading
+                  {"// loading"}
                 </span>
                 <span className="font-mono text-xs text-primary">
                   {displayProgress}%
@@ -508,7 +508,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
                   animate={{ opacity: 1, scale: 1 }}
                   className="font-mono text-xs text-accent"
                 >
-                  // launching...
+                  {"// launching..."}
                 </motion.div>
               )}
             </AnimatePresence>
