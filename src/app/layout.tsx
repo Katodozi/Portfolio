@@ -30,16 +30,20 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://anuj-bhattarai.com.np"),
   title: {
-    default: "Anuj Bhattarai | Full Stack Engineer & AI/ML Developer",
+    default: "Anuj Bhattarai | Full Stack Digital Marketer & Seo Specialist",
     template: "%s | Anuj Bhattarai",
   },
   description:
-    "Computer Engineering graduate from Pokhara University, Nepal. Full Stack Engineer and AI/ML Developer specializing in React, Next.js, Django, Spring Boot, NLP, and LLM integration. Open to freelance projects.",
+    "Computer Engineering graduate (Pokhara University, 2026) specializing in Full Stack web development and Digital Marketing proficient in Wordpress, Python, React, SEO, AI/ML/NLP and many other latest technologies.",
   keywords: [
     "Anuj Bhattarai",
     "Anuj Bhattarai Nepal",
     "Anuj Bhattarai portfolio",
+    "Full Stack Digital Marketer",
     "Full Stack Developer Nepal",
+    "Seo Specialist Nepal",
+    "Seo Expert Nepal",
+    "Wordpress Developer Nepal",
     "AI ML Engineer Nepal",
     "AI ML Engineer Kathmandu",
     "Next.js developer Nepal",
@@ -70,7 +74,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://anuj-bhattarai.com.np",
     siteName: "Anuj Bhattarai",
-    title: "Anuj Bhattarai | Full Stack Engineer & AI/ML Developer",
+    title: "Anuj Bhattarai | Full Stack Digital Marketer & Seo Specialist",
     description:
       "Computer Engineering graduate from Nepal building intelligent full-stack applications. Specializing in React, Next.js, Django, NLP, and LLM integration.",
     images: [
@@ -78,13 +82,13 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Anuj Bhattarai — Full Stack Engineer & AI/ML Developer",
+        alt: "Anuj Bhattarai — Full Stack Digital Marketer & Seo Specialist",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Anuj Bhattarai | Full Stack Engineer & AI/ML Developer",
+    title: "Anuj Bhattarai | Full Stack Digital Marketer & Seo Specialist",
     description:
       "Computer Engineering graduate from Nepal building intelligent full-stack applications.",
     images: ["/og-image.jpg"],
